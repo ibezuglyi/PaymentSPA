@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using Microsoft.Practices.ServiceLocation;
+using System.Web.Http.Dependencies;
+using StructureMap;
+
+namespace PaymentSPA.App_Start
+{
+    public class StructureMapDependencyScope : ServiceLocatorImplBase, IDependencyScope
+    {
+        protected readonly IContainer Container;
+
+        public StructureMapDependencyScope(IContainer container)
+        {
+            if (container == null)
+            {
+                throw new ArgumentNullException("container");
+            }
+
+            this.Container = container;
+        }
+
+        protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
+        {
+            return this.Container.GetAllInstances(serviceType).Cast<object>();
+        }
+
+        protected override object DoGetInstance(Type serviceType, string key)
+        {
+
+            if (string.IsNullOrEmpty(key))
+            {
+                return serviceType.IsAbstract || serviceType.IsInterface
+                           ? this.Container.TryGetInstance(serviceType)
+                           : this.Container.GetInstance(serviceType);
+            }
+
+            return this.Container.GetInstance(serviceType, key);
+        }
+
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            return this.Container.GetAllInstances(serviceType).Cast<object>();
+        }
+
+        public void Dispose()
+        {
+            this.Container.Dispose();
+        }
+        public object GetService(Type serviceType)
+        {
+            if (serviceType == null)
+            {
+                return null;
+            }
+
+            return serviceType.IsAbstract || serviceType.IsInterface
+                       ? this.Container.TryGetInstance(serviceType)
+                       : this.Container.GetInstance(serviceType);
+        }
+    }
+}

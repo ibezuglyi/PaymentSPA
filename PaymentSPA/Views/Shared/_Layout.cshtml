@@ -6,27 +6,117 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/bootstrap")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/themes/base/css")
 </head>
 <body>
-    <div id="userSettings">
-        @Html.Partial("_UserSettings")
-    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
 
-    <div id="body">
-        @RenderBody()
-    </div>
+                <a class="brand" href="#">Payment SPA</a>
 
+                <!-- the new toggle buttons -->
+
+                <ul class="nav pull-right">
+
+                    <li class="toggle-primary-sidebar hidden-desktop" data-toggle="collapse" data-target=".nav-collapse-primary">
+                        <button type="button" class="btn btn-navbar"><i class="icon-th-list"></i></button>
+                    </li>
+
+                    <li class="hidden-desktop" data-toggle="collapse" data-target=".nav-collapse-top">
+                        <button type="button" class="btn btn-navbar"><i class="icon-align-justify"></i></button>
+                    </li>
+
+                </ul>
+
+                <div class="nav-collapse nav-collapse-top collapse">
+
+                    <ul class="nav full pull-right">
+                            <!-- the dropdown has a custom user-avatar class, this is the small avatar with the badge -->
+                            @Html.Partial("_UserSettings")
+                    </ul>
+                        <form class="navbar-search pull-right">
+                                <input type="text" class="search-query animated" placeholder="Search">
+                                <i class="icon-search"></i>
+                            </form>
+
+
+                    <ul class="nav pull-right">
+                        <li class="active"><a href="#" title="Go home"><i class="icon-home"></i>Home</a>
+                        </li>
+                        <li><a href="#" title="Payments history"><i class="icon-th-list"></i>Payments</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 40px;">
+        <div class="row">
+            <div class="span3">
+                <div class="primary-sidebar">
+                    <!-- Main nav -->
+                    <ul class="nav nav-list main-menu">
+                        <li class="active">
+                            <a href>
+                                <i class="icon-tasks"></i>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a data-toggle="collapse">
+                                <i class="icon-tasks"></i>
+                                <span>Payment<i class="icon-tasks"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href>
+                                <i class="icon-tasks"></i>
+                                <span>Payment</span>
+                            </a>
+                        </li>
+                        <li>
+
+
+
+
+
+                            <a class="accordion-toggle collapsed " data-toggle="collapse">
+                                <i class="icon-tasks"></i>
+                                <span>Others
+                      <i class="icon-tasks"></i>
+                                </span>
+
+                            </a>
+
+                            <ul class="collapse ">
+
+                                <li class="">
+                                    <a href>
+                                        <i class="icon-tasks"></i>Wizard
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span9">
+                <div id="userSettings">
+                </div>
+                <div id="body">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
-        <nav>
-            <ul id="menu">
-                <li>@Html.ActionLink("Todo List", "Index", "Home", new { area = "" }, null)</li>
-                <li>@Html.ActionLink("API", "Index", "Help", new { area = "HelpPage" }, null)</li>
-            </ul>
-        </nav> 
-        <p>Learn more about <a href="http://go.microsoft.com/fwlink/?LinkId=273732">Single Page Applications</a></p>
-        <p>&copy; @DateTime.Now.Year - My ASP.NET MVC Application</p>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")

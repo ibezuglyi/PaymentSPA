@@ -262,3 +262,8 @@ footer {
         clear: both;
     }
 }
+.main-menu li a {
+    padding:5px 0px;
+    margin:5px 0px;
+    min-height:30px;
+}

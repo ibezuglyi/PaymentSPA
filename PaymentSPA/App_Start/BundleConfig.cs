@@ -36,8 +36,13 @@ namespace PaymentSPA
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                
                 "~/Content/Site.css",
                 "~/Content/TodoList.css"));
+            bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
+                "~/Content/bootstrap-responsive.min.css",
+                "~/Content/bootstrap.min.css"
+                ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

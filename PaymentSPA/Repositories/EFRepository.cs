@@ -55,5 +55,29 @@ namespace PaymentSPA.Repositories
                 DbSet.Remove(entity);
             }
         }
+
+
+        public void Add(TEntity entity)
+        {
+            DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+            if (dbEntityEntry.State != EntityState.Detached)
+            {
+                dbEntityEntry.State = EntityState.Added;
+            }
+            else
+            {
+                DbSet.Add(entity);
+            }
+        }
+
+        public void Update(TEntity entity)
+        {
+            DbEntityEntry dbEntityEntry = DbContext.Entry(entity);
+            if (dbEntityEntry.State == EntityState.Detached)
+            {
+                DbSet.Attach(entity);
+            }
+            dbEntityEntry.State = EntityState.Modified;
+        }
     }
 }

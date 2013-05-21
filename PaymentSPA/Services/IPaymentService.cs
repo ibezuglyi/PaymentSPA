@@ -12,5 +12,6 @@ namespace PaymentSPA.Services
         IList<PaymentVM> GetAllPayments();
         IList<PaymentVM> GetRecentPayments();
         IList<PaymentVM> GetCurrentMonthPayments();
+        void Save(PaymentVM paymentVm);
     }
 }

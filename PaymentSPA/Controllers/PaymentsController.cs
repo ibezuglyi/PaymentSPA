@@ -1,4 +1,6 @@
-﻿using PaymentSPA.Services;
+﻿using PaymentSPA.Models;
+using PaymentSPA.Services;
+using PaymentSPA.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +19,19 @@ namespace PaymentSPA.Controllers
 
             PaymentService = paymentService;
         }
-        public string Get()
+        public IEnumerable<PaymentVM> GetMonthView()
         {
-            return 42.ToString();
+            return PaymentService.GetCurrentMonthPayments();
+        }
 
+        public HttpResponseMessage Put(PaymentVM paymentVm)
+        {
+            if (ModelState.IsValid)
+            {
+                PaymentService.Save(paymentVm);
+                
+            }
+            return new HttpResponseMessage(HttpStatusCode.NoContent);
         }
 
     }

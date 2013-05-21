@@ -14,6 +14,8 @@ namespace PaymentSPA.Repositories
         void DeleteById(int id);
         void Delete(TEntity entity);
         IList<TEntity> GetAll(Expression<Func<TEntity, bool>> whereExpression = null);
+        void Add(TEntity entity);
+        void Update(TEntity entity);
 
     }
 }

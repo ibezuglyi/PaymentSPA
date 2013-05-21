@@ -9,7 +9,10 @@ namespace PaymentSPA.ViewModels
     {
         public double Value { get; set; }
         public DateTime CreatedAt { get; set; }
-        public CategoryVM Category { get; set; }
-
+        public IList<CategoryVM> Categories { get; set; }
+        public PaymentVM()
+        {
+            Categories = new List<CategoryVM>();
+        }
     }
 }

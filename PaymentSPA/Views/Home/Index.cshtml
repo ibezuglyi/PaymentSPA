@@ -20,7 +20,7 @@
 {
     <p class="error" data-bind="text: error"></p>
     <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
-    <button data-bind="click: addTodoList">Add Todo list</button>
+    <button data-bind="click: addPayment">Add Payment</button>
 
     <section id="lists" data-bind="foreach: todoLists, visible: todoLists().length > 0">
         <article class="todoList">
@@ -76,5 +76,6 @@ else
         @Scripts.Render("~/bundles/knockout")
         @Scripts.Render("~/bundles/jqueryval")
         @Scripts.Render("~/bundles/todo")
+        @Scripts.Render("~/bundles/payment")
     }
 }

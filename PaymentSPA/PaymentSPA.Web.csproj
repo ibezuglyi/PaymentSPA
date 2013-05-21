@@ -324,6 +324,9 @@
     <Content Include="Content\toastr.less" />
     <Content Include="Images\wallet.png" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\app\payment.datacontext.js" />
+    <Content Include="Scripts\app\payment.model.js" />
+    <Content Include="Scripts\app\payment.viewmodel.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
@@ -356,7 +359,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\app\ajaxlogin.js" />
     <Content Include="Scripts\app\todo.viewmodel.js" />
-    <Content Include="Scripts\app\todo.bindings.js" />
+    <Content Include="Scripts\app\payment.bindings.js" />
     <Content Include="Scripts\app\todo.datacontext.js" />
     <Content Include="Scripts\app\todo.model.js" />
     <Content Include="Images\accent.png" />

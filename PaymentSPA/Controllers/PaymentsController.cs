@@ -19,9 +19,10 @@ namespace PaymentSPA.Controllers
 
             PaymentService = paymentService;
         }
-        public IEnumerable<PaymentVM> GetMonthView()
+        [ActionName("getall")]
+        public IEnumerable<PaymentListVM> GetMonthView()
         {
-            return PaymentService.GetCurrentMonthPayments();
+            return PaymentListVM.BuildGrouppedList(PaymentService.GetCurrentMonthPayments());
         }
 
         public HttpResponseMessage Put(PaymentVM paymentVm)
@@ -29,7 +30,7 @@ namespace PaymentSPA.Controllers
             if (ModelState.IsValid)
             {
                 PaymentService.Save(paymentVm);
-                
+
             }
             return new HttpResponseMessage(HttpStatusCode.NoContent);
         }

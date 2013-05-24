@@ -1,5 +1,5 @@
-﻿window.todoApp.paymentListViewModel = (function (ko, datacontext) {
-    var payments = ko.observableArray(),
+﻿window.paymentApp.paymentListViewModel = (function (ko, datacontext) {
+    var paymentList = ko.observableArray(),
     error = ko.observable(),
     addPayment = function () {
         var payment = datacontext.createPayment();
@@ -16,5 +16,14 @@
         error("Save of new todoList failed");
     }
 
-    return { addPayment: addPayment }
-})(ko, todoApp.datacontext);
+    datacontext.getPaymentLists(paymentList, error); // load todoLists
+
+    return {
+        addPayment: addPayment,
+        error: error,
+        paymentList: paymentList
+    };
+})(ko, paymentApp.datacontext);
+
+// Initiate the Knockout bindings
+ko.applyBindings(window.paymentApp.paymentListViewModel);

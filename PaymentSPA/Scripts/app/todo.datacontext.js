@@ -104,6 +104,6 @@ window.todoApp.datacontext = (function () {
     }
     // routes
     function todoListUrl(id) { return "/api/todolist/" + (id || ""); }
-    function todoItemUrl(id) { return "/api/todo/" + (id || ""); }
+    function todoItemUrl(id) { return "/api/payments/" + (id || ""); }
 
 })();

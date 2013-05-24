@@ -8,7 +8,7 @@ namespace PaymentSPA.Models
 {
     public class Category : BaseEntity
     {
-        public int Name { get; set; }
+        public string Name { get; set; }
         public IList<Payment> Payments { get; set; }
 
         public Category()

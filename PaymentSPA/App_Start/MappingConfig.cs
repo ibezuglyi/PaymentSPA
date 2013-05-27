@@ -12,8 +12,9 @@ namespace PaymentSPA
     {
         public static void Register()
         {
-            Mapper.CreateMap<Payment, PaymentVM>()
-                .ForMember(r => r.Categories, op => op.Ignore());
+            Mapper.CreateMap<Payment, PaymentVM>();
+            Mapper.CreateMap<Category, CategoryVM>();
+                
 
         }
     }

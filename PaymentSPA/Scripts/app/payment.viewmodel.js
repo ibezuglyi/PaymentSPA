@@ -4,14 +4,19 @@
     addPayment = function () {
         var payment = datacontext.createPayment();
         //payment.isEditingListTitle(true);
-        datacontext.saveNewPayment(payments)
+        datacontext.saveNewPayment(payment)
             .then(addSucceeded)
             .fail(addFailed);
+    },
+    showNewPayment = function (payment)
+    {
+        paymentList.unshift(payment);
     }
-    function addSucceeded() {
-        alert("added succeded");
-        //showTodoList(todoList);
+    function addSucceeded(payment) {
+        //alert("added succeded");
+        showNewPayment(payment);
     }
+
     function addFailed() {
         error("Save of new todoList failed");
     }

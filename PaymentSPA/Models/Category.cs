@@ -9,11 +9,5 @@ namespace PaymentSPA.Models
     public class Category : BaseEntity
     {
         public string Name { get; set; }
-        public IList<Payment> Payments { get; set; }
-
-        public Category()
-        {
-            Payments = new List<Payment>();
-        }
     }
 }

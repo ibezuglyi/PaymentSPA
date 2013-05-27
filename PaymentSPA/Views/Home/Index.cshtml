@@ -1,6 +1,6 @@
 ﻿@model PaymentSPA.Models.LoginModel
 @{
-    ViewBag.Title = "My Todo List";
+    ViewBag.Title = "My Budget";
 }
 @functions{
     public string GetAntiForgeryToken()
@@ -11,9 +11,10 @@
     }
 }
 
-<header>
+<div class="well">
     <h1>@ViewBag.Title</h1>
-</header>
+</div>
+
 
 <div id="main-content">
     @if (@User.Identity.IsAuthenticated)

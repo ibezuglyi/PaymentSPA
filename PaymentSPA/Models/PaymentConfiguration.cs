@@ -10,7 +10,6 @@ namespace PaymentSPA.Models
     {
         public PaymentConfiguration()
         {
-            HasMany(t => t.Categories).WithMany(t => t.Payments);
             HasRequired(t => t.User);
         }
     }

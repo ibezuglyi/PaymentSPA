@@ -23,6 +23,16 @@
         <input id="antiForgeryToken" type="hidden" value="@GetAntiForgeryToken()" />
         <button data-bind="click: addPayment">Add Payment</button>
         
+        <div class="well" data-bind="if:paymentObject()!=null">
+            @using(Html.BeginForm("Put","Payments", FormMethod.Post, null))
+            {
+                <input type="number" name="Value" data-bind="value: paymentObject().value()" />
+                <input type="text" name="CreatedAt" data-bind="value: paymentObject().createdAt()" />
+                <input type="submit" />
+            }
+            
+        </div>
+        
         <div data-bind="foreach: paymentList">
             <div class="row">
                 <h4 data-bind="text: Title +':'+ Total"></h4>

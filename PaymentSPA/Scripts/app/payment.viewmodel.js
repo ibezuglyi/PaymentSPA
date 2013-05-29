@@ -1,16 +1,18 @@
 ﻿window.paymentApp.paymentListViewModel = (function (ko, datacontext) {
     var paymentList = ko.observableArray(),
+        paymentObject = ko.observable(),
     error = ko.observable(),
     addPayment = function () {
-        var payment = datacontext.createPayment();
+        paymentObject(datacontext.createPayment());
         //payment.isEditingListTitle(true);
-        datacontext.saveNewPayment(payment)
-            .then(addSucceeded)
-            .fail(addFailed);
+        //datacontext.saveNewPayment(payment)
+        //    .then(addSucceeded)
+        //    .fail(addFailed);
+        //addSucceeded(payment);
     },
     showNewPayment = function (payment)
     {
-        paymentList.unshift(payment);
+        paymentObject = payment;
     }
     function addSucceeded(payment) {
         //alert("added succeded");
@@ -24,6 +26,7 @@
     datacontext.getPaymentLists(paymentList, error); // load todoLists
 
     return {
+        paymentObject:paymentObject,
         addPayment: addPayment,
         error: error,
         paymentList: paymentList

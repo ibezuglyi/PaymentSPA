@@ -14,7 +14,7 @@
     }
     function paymentItem(data) {
         var self = this;
-        data = data || {};
+        data = data || {value:0, createdAt:new Date()};
         // Persisted properties
         self.Id = data.Id;
         self.value = ko.observable(data.value);

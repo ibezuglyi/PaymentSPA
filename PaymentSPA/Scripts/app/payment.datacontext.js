@@ -4,6 +4,7 @@ window.paymentApp.datacontext = (function () {
     var datacontext = {
         createPayment: createPayment,
         getPaymentLists: getPaymentLists,
+        saveNewPayment: saveNewPayment,
     };
     return datacontext;
 
@@ -20,7 +21,15 @@ window.paymentApp.datacontext = (function () {
         function getFailed() {
             errorObservable("Error retrieving todo lists.");
         }
+     
 
+    }
+    function saveNewPayment(payment) {
+        console.log("payment saved");
+        return ajaxRequest("post", paymentItemUrl(), payment)
+            .done(function (result) {
+
+            });
     }
     function createPayment(data) {
         return new datacontext.paymentItem(data);
@@ -35,6 +44,7 @@ window.paymentApp.datacontext = (function () {
                 todoItem.errorMessage("Error updating todo item.");
             });
     }
+
     // Private
     function clearErrorMessage(entity) { entity.errorMessage(null); }
     // Ajax helper

@@ -25,14 +25,14 @@ namespace PaymentSPA.Controllers
             return PaymentListVM.BuildGrouppedList(PaymentService.GetCurrentMonthPayments());
         }
 
+        [HttpPost]
         public HttpResponseMessage Put(PaymentVM paymentVm)
         {
             if (ModelState.IsValid)
             {
                 PaymentService.Save(paymentVm);
-
             }
-            return new HttpResponseMessage(HttpStatusCode.NoContent);
+            return Request.CreateResponse(HttpStatusCode.OK, GetMonthView());
         }
 
     }
